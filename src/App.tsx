@@ -1,11 +1,11 @@
 import Navbar from "@/scenes/navbar";
-import Home from "@/scenes/home";
-import OurClasses from "@/scenes/ourClasses";
-import Benefits from "@/scenes/benefits";
-import ContactUs from "@/scenes/contactUs";
 import Footer from "@/scenes/footer";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+
+import HomePage from "@/pages/HomePage";
+import Players from "@/pages/Players";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -27,16 +27,21 @@ function App() {
 
   return (
     <div className="app bg-gray-20">
-      <Navbar
-        isTopOfPage={isTopOfPage}
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-      />
-      <Home setSelectedPage={setSelectedPage} />
-      <Benefits setSelectedPage={setSelectedPage} />
-      <OurClasses setSelectedPage={setSelectedPage} />
-      <ContactUs setSelectedPage={setSelectedPage} />
-      <Footer />
+      <BrowserRouter>
+        <Navbar
+          isTopOfPage={isTopOfPage}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage setSelectedPage={setSelectedPage} />}
+          />
+          <Route path="/players" element={<Players />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

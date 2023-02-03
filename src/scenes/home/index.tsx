@@ -9,6 +9,8 @@ import Tezos from "@/assets/TezosLogo.png";
 import Dxc from "@/assets/DXC.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -74,8 +76,14 @@ const Home = ({ setSelectedPage }: Props) => {
               onClick={() => setSelectedPage(SelectedPage.ContactUs)}
               href={`#${SelectedPage.ContactUs}`}
             >
-              <p>Learn More</p>
+              <p>Learn more</p>
             </AnchorLink>
+            <Link to="/players" className="flex gap-2">
+              <p className="text-base font-bold text-primary-500 underline hover:text-secondary-500">
+                First team squad
+              </p>
+              <ArrowTopRightOnSquareIcon className="h-6 w-6" />
+            </Link>
           </motion.div>
         </div>
 

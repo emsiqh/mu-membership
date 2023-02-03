@@ -16,7 +16,11 @@ const Class = ({ name, description, image }: Props) => {
         <p className="text-2xl uppercase">{name}</p>
         <p className="mt-5">{description}</p>
       </div>
-      <img className="rounded-xl" alt={`${image}`} src={image} />
+      <img
+        className="max-h-full max-w-[18rem] rounded-xl md:min-w-full"
+        alt={`${image}`}
+        src={image}
+      />
     </li>
   );
 };

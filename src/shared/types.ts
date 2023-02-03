@@ -18,3 +18,11 @@ export interface ClassType {
   description?: string;
   image: string;
 }
+
+export interface PlayerType {
+  // id: string;
+  name: string;
+  position: string;
+  age: number;
+  image?: string;
+}
