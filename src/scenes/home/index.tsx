@@ -58,7 +58,7 @@ const Home = ({ setSelectedPage }: Props) => {
 
           {/* ACTIONS */}
           <motion.div
-            className="mt-8 mb-2 flex items-center gap-8"
+            className="mt-8 mb-2 flex items-center gap-[1rem] sm:gap-8 md:gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -76,13 +76,13 @@ const Home = ({ setSelectedPage }: Props) => {
               onClick={() => setSelectedPage(SelectedPage.ContactUs)}
               href={`#${SelectedPage.ContactUs}`}
             >
-              <p>Learn more</p>
+              <p className="hidden md:block">Learn more</p>
             </AnchorLink>
-            <Link to="/players" className="flex gap-2">
-              <p className="text-base font-bold text-primary-500 underline hover:text-secondary-500">
+            <Link to="/players">
+              <p className="inline-block text-base font-bold text-primary-500 underline hover:text-secondary-500 md:pr-2">
                 First team squad
               </p>
-              <ArrowTopRightOnSquareIcon className="h-6 w-6" />
+              <ArrowTopRightOnSquareIcon className="hidden h-6 w-6 md:inline-block" />
             </Link>
           </motion.div>
         </div>
